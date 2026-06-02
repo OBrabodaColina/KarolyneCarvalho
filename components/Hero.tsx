@@ -87,7 +87,7 @@ export default function Hero() {
             
             {/* Retrato de Estúdio Otimizado */}
             <Image 
-              src="/foto-karolyne-hero.jpg"
+              src="/KarolyneCarvalho/foto-karolyne-hero.jpg"
               alt="Karolyne Carvalho - Consultora Financeira"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
