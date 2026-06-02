@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   title: "Karolyne Carvalho | Consultoria Financeira Premium",
   description: "Planejamento Financeiro Inteligente para Construir o Futuro que Você Deseja. Organize suas finanças e proteja seu patrimônio.",
   keywords: "consultoria financeira, planejamento financeiro, wealth management, gestão de patrimônio, Karolyne Carvalho",
+  // Nova configuração mapeando o ícone para a pasta public:
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     title: "Karolyne Carvalho | Consultoria Financeira Premium",
     description: "Planejamento Financeiro Inteligente para Construir o Futuro que Você Deseja.",
