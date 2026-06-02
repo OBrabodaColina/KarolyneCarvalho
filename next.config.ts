@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // Substitua pelo nome EXATO do seu repositório no GitHub
+  // O nome deve ser EXATAMENTE igual ao nome do repositório na URL
   basePath: "/KarolyneCarvalho",
   assetPrefix: "/KarolyneCarvalho",
 };
