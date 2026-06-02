@@ -1,15 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export", // Ativa a exportação estática (gera a pasta 'out')
+  output: "export",
   images: {
-    unoptimized: true, // Obrigatório para exportação estática no GitHub Pages
+    unoptimized: true,
   },
-  /* Se você for usar a URL padrão do GitHub (ex: seu-usuario.github.io/nome-do-repositorio),
-    descomente a linha abaixo e insira o nome exato do seu repositório.
-    Se for usar um domínio personalizado (ex: karolynecarvalho.com.br), mantenha comentada.
-  */
-  // basePath: "/nome-do-repositorio",
+  // Substitua pelo nome EXATO do seu repositório no GitHub
+  basePath: "/KarolyneCarvalho",
+  assetPrefix: "/KarolyneCarvalho",
 };
 
 export default nextConfig;
