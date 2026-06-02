@@ -24,7 +24,7 @@ export default function Sobre() {
           className="relative h-[550px] w-full rounded-sm overflow-hidden shadow-xl border border-gray-200/50"
         >
           <Image 
-            src="/KarolyneCarvalho/foto-karolyne-sobre.jpg" // Caminho relativo à pasta public
+            src="/KarolyneCarvalho/foto-karolyne-sobre.jpg" // <-- Adicionado o /KarolyneCarvalho
             alt="Karolyne Carvalho - Consultora Financeira Premium"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
