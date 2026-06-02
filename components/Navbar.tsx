@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import Link from "next/link";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,21 +30,28 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link href="#" className={`text-2xl font-serif font-bold ${isScrolled ? "text-primary" : "text-white"}`}>
+        {/* Logo via Tag A */}
+        <a href="#" className={`text-2xl font-serif font-bold ${isScrolled ? "text-primary" : "text-white"}`}>
           KC<span className="text-secondary">.</span>
-        </Link>
+        </a>
 
+        {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 items-center">
           {links.map((link) => (
-            <Link key={link.name} href={link.href} className={`text-sm font-medium hover:text-secondary transition-colors ${isScrolled ? "text-text" : "text-white/90"}`}>
+            <a 
+              key={link.name} 
+              href={link.href} 
+              className={`text-sm font-medium hover:text-secondary transition-colors ${isScrolled ? "text-text" : "text-white/90"}`}
+            >
               {link.name}
-            </Link>
+            </a>
           ))}
           <a href="#contato" className="bg-secondary text-white px-6 py-2 rounded-sm font-medium hover:bg-yellow-600 transition-all shadow-lg">
             Agendar Consultoria
           </a>
         </div>
 
+        {/* Mobile Toggle Button */}
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X color={isScrolled ? "#0F172A" : "#FFF"} /> : <Menu color={isScrolled ? "#0F172A" : "#FFF"} />}
         </button>
@@ -53,12 +59,25 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl py-4 flex flex-col items-center space-y-4">
+        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl py-6 flex flex-col items-center space-y-4">
           {links.map((link) => (
-            <Link key={link.name} href={link.href} className="text-primary font-medium" onClick={() => setIsOpen(false)}>
+            <a 
+              key={link.name} 
+              href={link.href} 
+              className="text-primary font-medium" 
+              onClick={() => setIsOpen(false)}
+            >
               {link.name}
-            </Link>
+            </a>
           ))}
+          {/* CTA no Mobile (Melhoria de UX) */}
+          <a 
+            href="#contato" 
+            className="bg-secondary text-white px-8 py-3 mt-4 rounded-sm font-bold shadow-lg" 
+            onClick={() => setIsOpen(false)}
+          >
+            Agendar Consultoria
+          </a>
         </div>
       )}
     </motion.nav>
