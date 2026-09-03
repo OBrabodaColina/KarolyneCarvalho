@@ -1,24 +1,24 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import anime from "animejs/lib/anime.es.js";
+import * as anime from "animejs";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     // 1. Animação em cascata para os textos e botões
-    anime({
+    anime.default({
       targets: sectionRef.current?.querySelectorAll('.anime-hero-text'),
       translateY: [40, 0], // Sobe 40px
       opacity: [0, 1],
-      delay: anime.stagger(150), // 150ms de intervalo entre cada elemento
+      delay: anime.default.stagger(150), // 150ms de intervalo entre cada elemento
       easing: 'easeOutExpo',
       duration: 1200,
     });
 
     // 2. Animação suave de entrada para a imagem (com um pequeno atraso)
-    anime({
+    anime.default({
       targets: sectionRef.current?.querySelector('.anime-hero-image'),
       scale: [0.95, 1], // Leve zoom out inicial
       opacity: [0, 1],
@@ -34,7 +34,7 @@ export default function Hero() {
       id="inicio" 
       className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-primary"
     >
-      {/* Elementos visuais de fundo (Mantidos com classes estáticas) */}
+      {/* Elementos visuais de fundo */}
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-secondary/10 via-primary to-primary"></div>
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
 
@@ -73,7 +73,6 @@ export default function Hero() {
 
           {/* Coluna da Imagem */}
           <div className="relative h-[600px] w-full hidden md:block anime-hero-image opacity-0">
-            {/* Elemento de design atrás da imagem */}
             <div className="absolute top-8 -right-8 w-full h-full border border-secondary/30 rounded-sm"></div>
             
             <div className="relative w-full h-full rounded-sm overflow-hidden shadow-2xl">
@@ -85,8 +84,6 @@ export default function Hero() {
                 className="object-cover object-top"
                 priority
               />
-              
-              {/* Overlay suave para integrar a foto ao fundo escuro */}
               <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent mix-blend-multiply"></div>
             </div>
           </div>
