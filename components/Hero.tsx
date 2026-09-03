@@ -1,30 +1,30 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import * as anime from "animejs";
+import { animate, stagger } from "animejs";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    if (!sectionRef.current) return;
+
     // 1. Animação em cascata para os textos e botões
-    anime.default({
-      targets: sectionRef.current?.querySelectorAll('.anime-hero-text'),
-      translateY: [40, 0], // Sobe 40px
+    animate(sectionRef.current.querySelectorAll('.anime-hero-text') as any, {
+      translateY: [40, 0],
       opacity: [0, 1],
-      delay: anime.default.stagger(150), // 150ms de intervalo entre cada elemento
+      delay: stagger(150),
       easing: 'easeOutExpo',
       duration: 1200,
     });
 
-    // 2. Animação suave de entrada para a imagem (com um pequeno atraso)
-    anime.default({
-      targets: sectionRef.current?.querySelector('.anime-hero-image'),
-      scale: [0.95, 1], // Leve zoom out inicial
+    // 2. Animação suave de entrada para a imagem
+    animate(sectionRef.current.querySelector('.anime-hero-image') as any, {
+      scale: [0.95, 1],
       opacity: [0, 1],
       easing: 'easeOutQuart',
       duration: 1500,
-      delay: 500, // Começa depois que os textos já começaram a aparecer
+      delay: 500,
     });
   }, []);
 
